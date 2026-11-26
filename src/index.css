@@ -1,0 +1,168 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Default Theme: Obsidian Black & Champagne Gold (Dark) */
+:root,
+[data-theme="obsidian"] {
+  --yos-bg: #0a0a0b;
+  --yos-surface: #131316;
+  --yos-surface-alt: #1b1b1f;
+  --yos-border: #27272c;
+  --yos-border-strong: #3c3830;
+  --yos-text: #f5f2eb;
+  --yos-text-muted: #a19b90;
+  --yos-accent: #c9a86a;
+  --yos-accent-strong: #dfbf7f;
+  --yos-accent-contrast: #0b0a08;
+  --yos-card-bg: #111114;
+  --yos-card-border: #3a3224;
+  --yos-success: #46a86e;
+  --yos-danger: #d9534f;
+  --yos-warning: #d49b38;
+  --yos-gold-light: #f0d799;
+  --yos-gold-mid: #c8a256;
+  --yos-gold-deep: #8b6928;
+  color-scheme: dark;
+}
+
+/* Theme 2: Champagne Gold Luxe (Warm Dark) */
+[data-theme="gold"] {
+  --yos-bg: #14100a;
+  --yos-surface: #1e1810;
+  --yos-surface-alt: #282016;
+  --yos-border: #3b2f1e;
+  --yos-border-strong: #5c492c;
+  --yos-text: #faf4e6;
+  --yos-text-muted: #c2b399;
+  --yos-accent: #e0bd72;
+  --yos-accent-strong: #f2d590;
+  --yos-accent-contrast: #171209;
+  --yos-card-bg: #1a140c;
+  --yos-card-border: #66502d;
+  --yos-success: #54b97c;
+  --yos-danger: #e2625b;
+  --yos-warning: #e5b24d;
+  --yos-gold-light: #fae4a8;
+  --yos-gold-mid: #dab45f;
+  --yos-gold-deep: #946d25;
+  color-scheme: dark;
+}
+
+/* Theme 3: Atelier Warm Cream (Editorial Light) */
+[data-theme="cream"] {
+  --yos-bg: #f6f1e7;
+  --yos-surface: #fffdf8;
+  --yos-surface-alt: #efe7d8;
+  --yos-border: #ded4c1;
+  --yos-border-strong: #c2b08d;
+  --yos-text: #161411;
+  --yos-text-muted: #655d51;
+  --yos-accent: #9c7631;
+  --yos-accent-strong: #7d5d23;
+  --yos-accent-contrast: #fffdf8;
+  --yos-card-bg: #fffcf5;
+  --yos-card-border: #cbb485;
+  --yos-success: #1b7f48;
+  --yos-danger: #b8322c;
+  --yos-warning: #9e6a11;
+  --yos-gold-light: #ebd18f;
+  --yos-gold-mid: #bd9446;
+  --yos-gold-deep: #7f5d20;
+  color-scheme: light;
+}
+
+/* Theme 4: Crisp Gallery White (Minimalist Light) */
+[data-theme="white"] {
+  --yos-bg: #ffffff;
+  --yos-surface: #f8f7f4;
+  --yos-surface-alt: #efede8;
+  --yos-border: #e3e0d8;
+  --yos-border-strong: #c9c3b6;
+  --yos-text: #111112;
+  --yos-text-muted: #5e5b54;
+  --yos-accent: #141416;
+  --yos-accent-strong: #2c2a26;
+  --yos-accent-contrast: #ffffff;
+  --yos-card-bg: #ffffff;
+  --yos-card-border: #d7ccb2;
+  --yos-success: #157a44;
+  --yos-danger: #b8322c;
+  --yos-warning: #9e6a11;
+  --yos-gold-light: #edd392;
+  --yos-gold-mid: #c09747;
+  --yos-gold-deep: #826022;
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    background-color: var(--yos-bg);
+    color: var(--yos-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  body {
+    background-color: var(--yos-bg);
+    color: var(--yos-text);
+    min-height: 100dvh;
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    &:focus-visible {
+      outline: 2px solid var(--yos-accent);
+      outline-offset: 2px;
+    }
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.yos-gold-foil {
+  background: linear-gradient(
+    135deg,
+    var(--yos-gold-light) 0%,
+    var(--yos-gold-mid) 52%,
+    var(--yos-gold-deep) 100%
+  );
+}
+
+.yos-card-sheen {
+  background-image: radial-gradient(
+    ellipse 85% 65% at 15% 0%,
+    color-mix(in srgb, var(--yos-gold-mid) 14%, transparent) 0%,
+    transparent 65%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

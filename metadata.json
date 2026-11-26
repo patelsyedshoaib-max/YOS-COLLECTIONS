@@ -1,0 +1,6 @@
+{
+  "name": "YOS COLLECTION — Digital Stamp Card",
+  "description": "Premium multi-location digital loyalty stamp card system and owner QR scanner for YOS COLLECTION fashion boutique.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
